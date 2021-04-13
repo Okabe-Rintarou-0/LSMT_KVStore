@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw"/>
+				<Option working_dir="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw"/>
+				<Option working_dir="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="LSM_Tree">
-				<Option output="C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/LSM_Tree.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw"/>
+				<Option output="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/LSM_Tree.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -42,15 +42,15 @@
 					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 LSM_Tree"/>
-					<CompileFile command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 LSM_Tree"/>
+					<CompileFile command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="LSM_Tree/fast">
-				<Option output="C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/LSM_Tree.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw"/>
+				<Option output="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/LSM_Tree.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -63,33 +63,33 @@
 					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 LSM_Tree/fast"/>
-					<CompileFile command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 LSM_Tree/fast"/>
+					<CompileFile command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw"/>
+				<Option working_dir="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/CLionProjects/LSM Tree/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/cmake-build-debug-mingw/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/92304/CLionProjects/LSM Tree/MemTable.h">
+		<Unit filename="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/Memtable.h">
 			<Option target="LSM_Tree"/>
 		</Unit>
-		<Unit filename="C:/Users/92304/CLionProjects/LSM Tree/includes.h">
+		<Unit filename="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/includes.h">
 			<Option target="LSM_Tree"/>
 		</Unit>
-		<Unit filename="C:/Users/92304/CLionProjects/LSM Tree/main.cpp">
+		<Unit filename="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/main.cpp">
 			<Option target="LSM_Tree"/>
 		</Unit>
-		<Unit filename="C:/Users/92304/CLionProjects/LSM Tree/CMakeLists.txt">
+		<Unit filename="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
