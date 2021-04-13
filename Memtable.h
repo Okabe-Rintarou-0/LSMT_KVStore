@@ -1,0 +1,4 @@
+#ifndef LSM_TREE_MEMTABLE_H
+#define LSM_TREE_MEMTABLE_H
+
+#endif //LSM_TREE_MEMTABLE_H
