@@ -1,10 +1,9 @@
-#include <bits/stdc++.h>
-#include "SkipList.h"
+#include "includes.h"
 
 using namespace std;
 
 int main() {
-    SkipList<string, int> skipList;
+    MemTable<string, int> skipList;
     while (true) {
         string op;
         cin >> op;
@@ -30,6 +29,8 @@ int main() {
                 cout << "Find " << key << ",value is: " << *val << endl;
             else
                 cout << "Key does not exist!" << endl;
+        } else if (op == "OF") {
+            skipList.isOverflow();
         }
     }
     return 0;
