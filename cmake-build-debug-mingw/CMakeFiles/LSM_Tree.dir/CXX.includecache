@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../Inc/MurmurHash3.h
+stdlib.h
+-
+stdint.h
+-
+
+C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/Inc/SSTable.h
+bits/stdc++.h
+-
+cstdint
+-
+
+C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/Src/SSTable.cpp
+../Inc/SSTable.h
+C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/Inc/SSTable.h
+MurmurHash3.h
+C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/Src/MurmurHash3.h
+iostream
+-
+

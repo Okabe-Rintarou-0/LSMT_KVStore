@@ -142,6 +142,87 @@ LSM_Tree/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/build
 .PHONY : LSM_Tree/fast
 
+Src/MemTable.obj: Src/MemTable.cpp.obj
+
+.PHONY : Src/MemTable.obj
+
+# target to build an object file
+Src/MemTable.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/Src/MemTable.cpp.obj
+.PHONY : Src/MemTable.cpp.obj
+
+Src/MemTable.i: Src/MemTable.cpp.i
+
+.PHONY : Src/MemTable.i
+
+# target to preprocess a source file
+Src/MemTable.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/Src/MemTable.cpp.i
+.PHONY : Src/MemTable.cpp.i
+
+Src/MemTable.s: Src/MemTable.cpp.s
+
+.PHONY : Src/MemTable.s
+
+# target to generate assembly for a file
+Src/MemTable.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/Src/MemTable.cpp.s
+.PHONY : Src/MemTable.cpp.s
+
+Src/SSTable.obj: Src/SSTable.cpp.obj
+
+.PHONY : Src/SSTable.obj
+
+# target to build an object file
+Src/SSTable.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/Src/SSTable.cpp.obj
+.PHONY : Src/SSTable.cpp.obj
+
+Src/SSTable.i: Src/SSTable.cpp.i
+
+.PHONY : Src/SSTable.i
+
+# target to preprocess a source file
+Src/SSTable.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/Src/SSTable.cpp.i
+.PHONY : Src/SSTable.cpp.i
+
+Src/SSTable.s: Src/SSTable.cpp.s
+
+.PHONY : Src/SSTable.s
+
+# target to generate assembly for a file
+Src/SSTable.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/Src/SSTable.cpp.s
+.PHONY : Src/SSTable.cpp.s
+
+Src/kvstore.obj: Src/kvstore.cc.obj
+
+.PHONY : Src/kvstore.obj
+
+# target to build an object file
+Src/kvstore.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.obj
+.PHONY : Src/kvstore.cc.obj
+
+Src/kvstore.i: Src/kvstore.cc.i
+
+.PHONY : Src/kvstore.i
+
+# target to preprocess a source file
+Src/kvstore.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.i
+.PHONY : Src/kvstore.cc.i
+
+Src/kvstore.s: Src/kvstore.cc.s
+
+.PHONY : Src/kvstore.s
+
+# target to generate assembly for a file
+Src/kvstore.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.s
+.PHONY : Src/kvstore.cc.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -178,6 +259,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... LSM_Tree
+	@echo ... Src/MemTable.obj
+	@echo ... Src/MemTable.i
+	@echo ... Src/MemTable.s
+	@echo ... Src/SSTable.obj
+	@echo ... Src/SSTable.i
+	@echo ... Src/SSTable.s
+	@echo ... Src/kvstore.obj
+	@echo ... Src/kvstore.i
+	@echo ... Src/kvstore.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
