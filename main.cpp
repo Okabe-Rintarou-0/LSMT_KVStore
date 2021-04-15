@@ -15,13 +15,15 @@ void testKVStore() {
             string value;
             cin >> key >> value;
             kvStore.put(key, value);
+        } else if (op == "RESET") {
+            kvStore.reset();
         } else if (op == "SHOW")
             kvStore.showMemTable();
         else if (op == "DEL") {
             uint64_t key;
             cin >> key;
-            if (kvStore.del(key))cout << "Delete key" << key << " succeed!" << endl;
-            else cout << "Delete key" << key << " fail" << endl;
+            if (kvStore.del(key))cout << "Delete key " << key << " succeed!" << endl;
+            else cout << "Delete key " << key << " fail" << endl;
         } else if (op == "GET") {
             uint64_t key;
             cin >> key;
@@ -74,7 +76,7 @@ int main() {
     while (cin >> option) {
         if (option == "BF")
             testBloomFilter();
-        else if (option == "SV")
+        else if (option == "KV")
             testKVStore();
     }
     return 0;

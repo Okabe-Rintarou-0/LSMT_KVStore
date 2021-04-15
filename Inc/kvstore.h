@@ -7,9 +7,14 @@
 class KVStore : public KVStoreAPI {
     // You can add your implementation here
 private:
+    void getFileNamesUnderDirectory(std::string &filePath, const std::regex &pat, std::vector<std::string> &dst);
+
+    void removeDirectoryRecursively(std::string filePath);
+
+    std::string manageDir;
     MemTable *memTable;
     std::vector<std::list<SSTable *>> storeLevel;
-    int nextTimeStamp;
+    uint64_t nextTimeStamp;
 public:
     KVStore(const std::string &dir);
 

@@ -27,6 +27,8 @@ public:
         return currentSize;
     }
 
+    inline bool isEmpty() const { return currentSize == 0; }
+
     std::string *get(const uint64_t &key);
 
     void put(const uint64_t &key, const std::string &val);

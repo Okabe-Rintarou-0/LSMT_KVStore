@@ -10,6 +10,7 @@ CMakeFiles/LSM_Tree.dir/Src/SSTable.cpp.obj
  C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/Inc/SSTable.h
  C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/Src/SSTable.cpp
 CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.obj
+ ../Inc/binary.h
  ../Inc/utils.h
  C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/Inc/MemTable.h
  C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/Inc/SSTable.h

@@ -1,6 +1,6 @@
 #include "../Inc/MemTable.h"
 
-SkipList::SkipList() : currentSize(0) {
+SkipList::SkipList() : currentSize(0), entrySize(0) {
     head = new Node<uint64_t, std::string>();  //初始化头结点
 }
 

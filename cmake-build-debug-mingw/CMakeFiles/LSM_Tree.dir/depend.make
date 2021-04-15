@@ -9,6 +9,7 @@ CMakeFiles/LSM_Tree.dir/Src/SSTable.cpp.obj: ../Inc/MurmurHash3.h
 CMakeFiles/LSM_Tree.dir/Src/SSTable.cpp.obj: ../Inc/SSTable.h
 CMakeFiles/LSM_Tree.dir/Src/SSTable.cpp.obj: ../Src/SSTable.cpp
 
+CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.obj: ../Inc/binary.h
 CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.obj: ../Inc/utils.h
 CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.obj: ../Inc/MemTable.h
 CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.obj: ../Inc/SSTable.h
