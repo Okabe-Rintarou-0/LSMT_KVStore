@@ -9,6 +9,13 @@
 class BloomFilter {
 public:
     uint8_t set[SETSIZE] = {0}; //SETSIZE is 10240,namely 10240 Byte = 10 KB
+
+    inline void unionSet(uint8_t srcSet[SETSIZE]) { //union two sets
+        for (int i = 0; i < SETSIZE; ++i) {
+            set[i] |= srcSet[i];
+        }
+    }
+
     void put(uint64_t key);
 
     bool find(uint64_t key) const;
@@ -22,15 +29,14 @@ public:
 
 class SSTable {
 public:
-    SSTable() = default;
+    SSTable(std::string &directoryPath);
 
-    SSTable(uint64_t timeStamp, const std::vector<uint64_t> &orderedKey, const std::vector<std::string> &value);
+    SSTable(std::string &directoryPath, uint64_t timeStamp, const std::vector<uint64_t> &orderedKey,
+            const std::vector<std::string> &value);
 
-    std::string get(const std::string &filePath, uint64_t key) const;
+    std::string get(uint64_t key) const;
 
-    inline uint64_t getTimeStamp() { return header.timeStamp; }
-
-    void write(const std::string &filePath);
+    void write(const std::vector<std::string> &data) const;
 
     void putKeyOffsetPair(uint64_t key, uint32_t offset);
 
@@ -39,6 +45,26 @@ public:
     inline void setTimeStamp(uint64_t timeStamp) { header.timeStamp = timeStamp; }
 
     void setBloomFilter(void *bytes);
+
+    void getKeys(std::vector<uint64_t> &dst) const;
+
+    void getValues(std::vector<std::string> &dst) const;
+
+    inline void setDirectoryPath(const std::string &directoryPath) {
+        this->directoryPath = directoryPath;
+        if (*(this->directoryPath.rbegin()) != '/')
+            this->directoryPath.append("/");
+    }
+
+    inline std::string getFilePath() const { return directoryPath + std::to_string(header.timeStamp) + ".sst"; }
+
+    inline uint64_t getTimeStamp() const { return header.timeStamp; }
+
+    inline uint64_t getEntryNumber() const { return header.entryNumber; }
+
+    inline int64_t getMinKey() const { return header.minKey; }
+
+    inline int64_t getMaxKey() const { return header.maxKey; }
 
 private:
 
@@ -64,6 +90,8 @@ private:
     BloomFilter bloomFilter;
     std::vector<KeyOffsetPair> keyOffsetPairs;
     std::vector<std::string> data;
+
+    std::string directoryPath;
 };
 
 

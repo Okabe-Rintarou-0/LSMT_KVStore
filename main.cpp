@@ -37,6 +37,9 @@ void testKVStore() {
             return;
         } else if (op == "REVERT") {
             kvStore.MemTableToSSTable();
+        } else if (op == "GETVAL") {
+            std::vector<std::string> values;
+            kvStore.testGetValues(values);
         }
     }
 }

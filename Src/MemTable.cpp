@@ -5,6 +5,10 @@ SkipList::SkipList() : currentSize(0), entrySize(0) {
 }
 
 SkipList::~SkipList() {
+    clear();
+}
+
+void SkipList::clear() {
     Node<uint64_t, std::string> *p = head;
     Node<uint64_t, std::string> *q = head;
     while (q) {
@@ -16,6 +20,8 @@ SkipList::~SkipList() {
         }
         p = q;
     }
+    entrySize = currentSize = 0;
+    head = nullptr;
 }
 
 std::string *SkipList::get(const uint64_t &key) {
@@ -107,6 +113,8 @@ bool SkipList::remove(const uint64_t &key) {
         }
         if (p->right && p->right->key == key) {
             value = p->right->val;
+            if (value == "~DELETED~")
+                return false;
             find = true;
             Node<uint64_t, std::string> *tmpNode = p->right;
             p->right = tmpNode->right;
@@ -129,7 +137,10 @@ bool SkipList::remove(const uint64_t &key) {
 
 bool MemTable::isOverflow() {//To judge if it needs to revert to SSTable;
     //for debug:
+#ifdef DEBUG
     std::cout << "Entry Size: " << entrySize << std::endl;
+#endif
+//    std::cout << "Entry Size: " << entrySize << std::endl;
     //for debug:
     size_t totalSize = 10272 + entrySize; //totalSize = 32 + 10240 + keyValueSize;
     return totalSize > 2097152; //2097152 Byte = 2 MB

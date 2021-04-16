@@ -21,6 +21,8 @@ public:
 
     ~SkipList();
 
+    void clear();
+
     void traverse();
 
     inline size_t size() {

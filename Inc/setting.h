@@ -1,0 +1,4 @@
+#ifndef LSM_TREE_SETTING_H
+#define LSM_TREE_SETTING_H
+//#define DEBUG
+#endif //LSM_TREE_SETTING_H

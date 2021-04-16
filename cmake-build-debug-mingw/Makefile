@@ -223,32 +223,32 @@ Src/kvstore.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.s
 .PHONY : Src/kvstore.cc.s
 
-main.obj: main.cpp.obj
+correctness.obj: correctness.cc.obj
 
-.PHONY : main.obj
+.PHONY : correctness.obj
 
 # target to build an object file
-main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/main.cpp.obj
-.PHONY : main.cpp.obj
+correctness.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/correctness.cc.obj
+.PHONY : correctness.cc.obj
 
-main.i: main.cpp.i
+correctness.i: correctness.cc.i
 
-.PHONY : main.i
+.PHONY : correctness.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/main.cpp.i
-.PHONY : main.cpp.i
+correctness.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/correctness.cc.i
+.PHONY : correctness.cc.i
 
-main.s: main.cpp.s
+correctness.s: correctness.cc.s
 
-.PHONY : main.s
+.PHONY : correctness.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/main.cpp.s
-.PHONY : main.cpp.s
+correctness.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/correctness.cc.s
+.PHONY : correctness.cc.s
 
 # Help Target
 help:
@@ -268,9 +268,9 @@ help:
 	@echo ... Src/kvstore.obj
 	@echo ... Src/kvstore.i
 	@echo ... Src/kvstore.s
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
+	@echo ... correctness.obj
+	@echo ... correctness.i
+	@echo ... correctness.s
 .PHONY : help
 
 

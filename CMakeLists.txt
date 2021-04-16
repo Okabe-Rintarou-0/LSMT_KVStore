@@ -6,4 +6,4 @@ file(GLOB_RECURSE SOURCES "Src/*.*" "Inc/*.*")
 include_directories(Inc)
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(LSM_Tree main.cpp ${SOURCES})
+add_executable(LSM_Tree correctness.cc ${SOURCES})

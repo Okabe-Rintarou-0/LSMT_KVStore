@@ -103,6 +103,9 @@
 		<Unit filename="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/Inc/kvstore_api.h">
 			<Option target="LSM_Tree"/>
 		</Unit>
+		<Unit filename="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/Inc/setting.h">
+			<Option target="LSM_Tree"/>
+		</Unit>
 		<Unit filename="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/Inc/test.h">
 			<Option target="LSM_Tree"/>
 		</Unit>
@@ -118,7 +121,7 @@
 		<Unit filename="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/Src/kvstore.cc">
 			<Option target="LSM_Tree"/>
 		</Unit>
-		<Unit filename="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/main.cpp">
+		<Unit filename="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/correctness.cc">
 			<Option target="LSM_Tree"/>
 		</Unit>
 		<Unit filename="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/CMakeLists.txt">
