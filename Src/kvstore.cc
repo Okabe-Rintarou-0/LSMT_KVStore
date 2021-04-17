@@ -14,7 +14,6 @@ void KVStore::removeDirectoryContentRecursively(std::string filePath) {
     long result;
     do {
         std::string thisFileName(file.name);
-//        std::cout << "This file name: " << thisFileName << std::endl;
         if (thisFileName != "." && thisFileName != "..") {
 #ifdef DEBUG
             std::cout << "Remove file: " << thisFileName << std::endl;
@@ -30,9 +29,20 @@ void KVStore::removeDirectoryContentRecursively(std::string filePath) {
     } while (result != -1);
 }
 
+uint64_t KVStore::getEndNumber(const std::string &src) {
+    uint64_t figures = 1;
+    uint64_t dst = 0;
+    for (auto it = src.rbegin(); it != src.rend(); ++it) {
+        char ch = *it;
+        if (ch > '9' || ch < '0')break;
+        dst += (ch - '0') * figures;
+        figures *= 10;
+    }
+    return dst;
+}
+
 void KVStore::getFileNamesUnderDirectory(std::string &filePath, const std::regex &pat,
                                          std::vector<std::string> &dst) {
-//    std::cout << "Now begin searching in file path: " << filePath << std::endl;
     _finddata_t file{};
     if (*filePath.rbegin() != '/')
         filePath.append("/");//add '/'
@@ -41,13 +51,13 @@ void KVStore::getFileNamesUnderDirectory(std::string &filePath, const std::regex
     long result;
     do {
         std::string thisFileName(file.name);
-//        std::cout << "This file name: " << thisFileName << std::endl;
         if (std::regex_match(thisFileName, pat)) {
-            dst.push_back(filePath + thisFileName);
-//            std::cout << "Exists file: " << thisFileName << std::endl;
+            dst.push_back(filePath + thisFileName);;
         }
         result = _findnext(handle, &file);
     } while (result != -1);
+    std::sort(dst.begin(), dst.end(),
+              [this](const std::string &a, const std::string &b) { return getEndNumber(a) < getEndNumber(b); });
 }
 
 KVStore::KVStore(const std::string &dir) : KVStoreAPI(dir), manageDir(dir), nextTimeStamp(1) {
@@ -72,15 +82,11 @@ KVStore::KVStore(const std::string &dir) : KVStoreAPI(dir), manageDir(dir), next
         std::vector<std::string> ssTableFilePath;
         std::regex pat("[0-9]+\\.sst");
         getFileNamesUnderDirectory(thisFilePath, pat, ssTableFilePath);
+
         for (auto &sstFilePath:ssTableFilePath) {
-//            std::cout << "SST file: " << sstFilePath << std::endl;
-            std::string targetFileName = std::to_string(nextTimeStamp) + ".sst";
-//            std::cout << "Renaming to " << targetFileName << "..." << std::endl;
-            std::string newFilePath = std::regex_replace(sstFilePath, pat, targetFileName);
-            rename(sstFilePath.c_str(), newFilePath.c_str());
-            auto ssTable = decodeSSTFile(newFilePath);
-            ssTable->setTimeStamp(nextTimeStamp++);
+            auto ssTable = decodeSSTFile(sstFilePath);
             storeLevel[levelSize].push_back(ssTable);
+            nextTimeStamp = std::max(nextTimeStamp, ssTable->getTimeStamp()) + 1;
         }
     }
 }
@@ -94,9 +100,15 @@ KVStore::~KVStore() {
  * No return values for simplicity.
  */
 void KVStore::put(uint64_t key, const std::string &value) {
+    auto existedVal = memTable->get(key);
+    size_t increment;
+    if (existedVal)
+        increment = value.size() - existedVal->size();
+    else
+        increment = 12 + value.size();
+    if (memTable->willOverflow(increment))
+        MemTableToSSTable(); // If the size of MemTable has overflew, then revert it to SSTable.
     memTable->put(key, value);
-    if (memTable->isOverflow())
-        MemTableToSSTable(); // If the size of MemTable has overflowed, then revert it to SSTable.
 }
 
 /**
@@ -133,9 +145,12 @@ std::string KVStore::get(uint64_t key) {
 #endif
             auto thisValue = thisSSTable->get(key);
             if (!thisValue.empty()) {
-                if (thisValue != "~DELETED")
+                if (thisValue != "~DELETED~") {
                     return thisValue;
-                else return "";
+                } else {
+//                    std::cout << "key: " << key << std::endl;
+                    return "";
+                }
             }
         }
     }
@@ -147,7 +162,7 @@ std::string KVStore::get(uint64_t key) {
  * Returns false iff the key is not found.
  */
 bool KVStore::del(uint64_t key) {
-    if (memTable->remove(key)) {
+    if (!get(key).empty()) {
 #ifdef DEBUG
         std::cout << "Delete key " << key << " in MemTable" << std::endl;
 #endif
@@ -197,16 +212,24 @@ KVStore::merge(const std::vector<uint64_t> &srcA_keys, const std::vector<std::st
 //        std::cout << "merging... compare keyA " << thisKeyA << " to keyB " << thisKeyB << std::endl;
         uint64_t thisKey; //the key need to be pushed
         std::string thisValue; //the value need to be pushed
-        if (thisKeyA < thisKeyB || (thisKeyA == thisKeyB && timeStampA > timeStampB)) {
+        if (thisKeyA < thisKeyB) {
             thisKey = thisKeyA;
             thisValue = srcA_values[i];
             ++i;
-        } else {
+        } else if (thisKeyA > thisKeyB) {
             thisKey = thisKeyB;
             thisValue = srcB_values[j];
             ++j;
+        } else {
+            if (timeStampA > timeStampB) {
+                thisKey = thisKeyA;
+                thisValue = srcA_values[i];
+            } else {
+                thisKey = thisKeyB;
+                thisValue = srcB_values[j];
+            }
+            ++i, ++j;
         }
-//        std::cout << "merging... Push key " << thisKey << " and value " << thisValue << std::endl;
         dstKeys.push_back(thisKey);
         dstValues.push_back(thisValue);
     }
@@ -227,22 +250,24 @@ void KVStore::splitIntoSSTables(std::vector<uint64_t> &srcKeys, std::vector<std:
     int keyNumber = srcValues.size();
     for (int i = 0; i < keyNumber; ++i) {
         auto value = srcValues[i];
+        if (value == "~DELETED~")continue; //if deleted,then skip
         presentSize += 12 + value.size();
+
 #ifdef DEBUG
         std::cout << "merging... Now merging size is: " << presentSize << std::endl;
 #endif
-        if (presentSize > 2097152) { //overflow 2MB
+        if (presentSize + 10272 > 2097152) { //overflow 2MB
             std::vector<uint64_t> keys;
             std::vector<std::string> values;
             for (int j = begin; j < i; ++j) {
-                keys.push_back(srcKeys[i]);
-                values.push_back(srcValues[i]);
+                keys.push_back(srcKeys[j]);
+                values.push_back(srcValues[j]);
             }
             begin = i;
             auto newSSTable = new SSTable(dstPath, nextTimeStamp++, keys, values);
             newSSTable->write(values); ///TODO simplify?
             storeLevel[1].push_back(newSSTable);
-            presentSize = 12 + values[i].size();
+            presentSize = 12 + srcValues[i].size();
         }
     }
     std::vector<uint64_t> keys;
@@ -258,7 +283,6 @@ void KVStore::splitIntoSSTables(std::vector<uint64_t> &srcKeys, std::vector<std:
 }
 
 void KVStore::mergeLevels() {
-//    std::cout << "Now merge level 0 and level 1..." << std::endl;
     std::vector<SSTable *> needMerge;
     //first statistic the key range of level 0
     std::list<SSTable *> &level_0 = storeLevel[0];
@@ -311,6 +335,13 @@ void KVStore::mergeLevels() {
         presentKeys = mergedKeys;
         presentValues = mergedValues;
     }
+
+//    std::ofstream out("../debug/debug.txt", std::ios::app);
+//    for (int i = 0; i < presentKeys.size(); ++i) {
+//        out << presentKeys[i] << ": " << presentValues[i] << std::endl;
+//    }
+//    out.close();
+
     splitIntoSSTables(presentKeys, presentValues, targetDirectoryPath);
     removeDirectoryContentRecursively(manageDir + "level-0");
 }
@@ -322,7 +353,6 @@ void KVStore::pushDown(unsigned int levelIndex) {
     auto newDirectoryPath = (manageDir + "level-" + std::to_string(levelIndex + 1));
     auto newPath = (newDirectoryPath + "/" + std::to_string(pushDownSSTable->getTimeStamp()) + ".sst");
     utils::mkdir(newDirectoryPath.c_str());
-//    std::cout << "Rename " << pushDownSSTable->getFilePath() << " to " << newPath << std::endl;
     rename(pushDownSSTable->getFilePath().c_str(), newPath.c_str());
     pushDownSSTable->setDirectoryPath(newDirectoryPath);
     if (storeLevel.size() <= levelIndex + 1)
@@ -334,7 +364,6 @@ void KVStore::handleLevelOverflow() {
     mergeLevels();
     unsigned int levelIndex = 1;
     while (isOverflow(levelIndex)) {
-//        std::cout << "This level: " << levelIndex << std::endl;
         do {
             pushDown(levelIndex);
         } while (isOverflow(levelIndex));
@@ -362,8 +391,7 @@ void KVStore::MemTableToSSTable() {
     /*----------------Handle Overflow-----------------*/
 //    printBinary(filePath, "../store/level-0/bin.txt");
 //    decodeSSTFile(filePath); //for Debug;
-    delete memTable;
-    memTable = new MemTable;
+    memTable->clear();
 }
 
 SSTable *KVStore::decodeSSTFile(const std::string &filePath) {
@@ -423,18 +451,6 @@ SSTable *KVStore::decodeSSTFile(const std::string &filePath) {
         presentSize += 12;
     }
     //read key and offset
-
-    //For debug: show the data
-#ifdef DEBUG
-    std::cout << "Data: ";
-    while (true) {
-        char ch;
-        file.get(ch);
-        if (file.eof())break;
-        std::cout << ch << " ";
-    }
-    std::cout << std::endl;
-#endif
     return ssTable;
 }
 

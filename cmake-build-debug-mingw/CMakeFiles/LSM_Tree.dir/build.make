@@ -76,19 +76,19 @@ include CMakeFiles/LSM_Tree.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/LSM_Tree.dir/flags.make
 
-CMakeFiles/LSM_Tree.dir/correctness.cc.obj: CMakeFiles/LSM_Tree.dir/flags.make
-CMakeFiles/LSM_Tree.dir/correctness.cc.obj: CMakeFiles/LSM_Tree.dir/includes_CXX.rsp
-CMakeFiles/LSM_Tree.dir/correctness.cc.obj: ../correctness.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\92304\Documents\Study\SE Materials\lsm-tree-project\cmake-build-debug-mingw\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/LSM_Tree.dir/correctness.cc.obj"
-	C:\PROGRA~2\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\LSM_Tree.dir\correctness.cc.obj -c "C:\Users\92304\Documents\Study\SE Materials\lsm-tree-project\correctness.cc"
+CMakeFiles/LSM_Tree.dir/persistence.cc.obj: CMakeFiles/LSM_Tree.dir/flags.make
+CMakeFiles/LSM_Tree.dir/persistence.cc.obj: CMakeFiles/LSM_Tree.dir/includes_CXX.rsp
+CMakeFiles/LSM_Tree.dir/persistence.cc.obj: ../persistence.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\92304\Documents\Study\SE Materials\lsm-tree-project\cmake-build-debug-mingw\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/LSM_Tree.dir/persistence.cc.obj"
+	C:\PROGRA~2\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\LSM_Tree.dir\persistence.cc.obj -c "C:\Users\92304\Documents\Study\SE Materials\lsm-tree-project\persistence.cc"
 
-CMakeFiles/LSM_Tree.dir/correctness.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LSM_Tree.dir/correctness.cc.i"
-	C:\PROGRA~2\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\92304\Documents\Study\SE Materials\lsm-tree-project\correctness.cc" > CMakeFiles\LSM_Tree.dir\correctness.cc.i
+CMakeFiles/LSM_Tree.dir/persistence.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LSM_Tree.dir/persistence.cc.i"
+	C:\PROGRA~2\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\92304\Documents\Study\SE Materials\lsm-tree-project\persistence.cc" > CMakeFiles\LSM_Tree.dir\persistence.cc.i
 
-CMakeFiles/LSM_Tree.dir/correctness.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LSM_Tree.dir/correctness.cc.s"
-	C:\PROGRA~2\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\92304\Documents\Study\SE Materials\lsm-tree-project\correctness.cc" -o CMakeFiles\LSM_Tree.dir\correctness.cc.s
+CMakeFiles/LSM_Tree.dir/persistence.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LSM_Tree.dir/persistence.cc.s"
+	C:\PROGRA~2\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\92304\Documents\Study\SE Materials\lsm-tree-project\persistence.cc" -o CMakeFiles\LSM_Tree.dir\persistence.cc.s
 
 CMakeFiles/LSM_Tree.dir/Src/MemTable.cpp.obj: CMakeFiles/LSM_Tree.dir/flags.make
 CMakeFiles/LSM_Tree.dir/Src/MemTable.cpp.obj: CMakeFiles/LSM_Tree.dir/includes_CXX.rsp
@@ -134,7 +134,7 @@ CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.s: cmake_force
 
 # Object files for target LSM_Tree
 LSM_Tree_OBJECTS = \
-"CMakeFiles/LSM_Tree.dir/correctness.cc.obj" \
+"CMakeFiles/LSM_Tree.dir/persistence.cc.obj" \
 "CMakeFiles/LSM_Tree.dir/Src/MemTable.cpp.obj" \
 "CMakeFiles/LSM_Tree.dir/Src/SSTable.cpp.obj" \
 "CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.obj"
@@ -142,7 +142,7 @@ LSM_Tree_OBJECTS = \
 # External object files for target LSM_Tree
 LSM_Tree_EXTERNAL_OBJECTS =
 
-LSM_Tree.exe: CMakeFiles/LSM_Tree.dir/correctness.cc.obj
+LSM_Tree.exe: CMakeFiles/LSM_Tree.dir/persistence.cc.obj
 LSM_Tree.exe: CMakeFiles/LSM_Tree.dir/Src/MemTable.cpp.obj
 LSM_Tree.exe: CMakeFiles/LSM_Tree.dir/Src/SSTable.cpp.obj
 LSM_Tree.exe: CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.obj

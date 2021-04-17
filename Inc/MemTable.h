@@ -46,7 +46,7 @@ protected:
 
 class MemTable : public SkipList {
 public:
-    bool isOverflow();
+    bool willOverflow(size_t s);
 
     void getOrderedEntries(std::vector<uint64_t> &keyDst, std::vector<std::string> &valDst);
 };

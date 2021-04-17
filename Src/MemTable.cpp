@@ -135,14 +135,14 @@ bool SkipList::remove(const uint64_t &key) {
     return find;
 }
 
-bool MemTable::isOverflow() {//To judge if it needs to revert to SSTable;
+bool MemTable::willOverflow(size_t increment) {//To judge if it needs to revert to SSTable;
     //for debug:
 #ifdef DEBUG
     std::cout << "Entry Size: " << entrySize << std::endl;
 #endif
 //    std::cout << "Entry Size: " << entrySize << std::endl;
     //for debug:
-    size_t totalSize = 10272 + entrySize; //totalSize = 32 + 10240 + keyValueSize;
+    size_t totalSize = 10272 + entrySize + increment; //totalSize = 32 + 10240 + keyValueSize;
     return totalSize > 2097152; //2097152 Byte = 2 MB
 }
 

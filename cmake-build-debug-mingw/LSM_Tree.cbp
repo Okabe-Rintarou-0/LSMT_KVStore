@@ -121,7 +121,7 @@
 		<Unit filename="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/Src/kvstore.cc">
 			<Option target="LSM_Tree"/>
 		</Unit>
-		<Unit filename="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/correctness.cc">
+		<Unit filename="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/persistence.cc">
 			<Option target="LSM_Tree"/>
 		</Unit>
 		<Unit filename="C:/Users/92304/Documents/Study/SE Materials/lsm-tree-project/CMakeLists.txt">

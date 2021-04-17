@@ -55,16 +55,37 @@ private:
 
 		phase();
 
-		report();
-
 		/**
 		 * Write 10MB data to drain previous data out of memory.
 		 */
 		for (i = 0; i <= 10240; ++i)
 			store.put(max + i, std::string(1024, 'x'));
-
 		std::cout << "Data is ready, please press ctrl-c/ctrl-d to"
 			" terminate this program!" << std::endl;
+
+        for (i = 0; i < max; ++i) {
+            switch (i & 3) {
+                case 0:
+                    EXPECT(std::string(i+1, 't'), store.get(i));
+                    break;
+                case 1:
+                    EXPECT(std::string(i+1, 't'), store.get(i));
+                    break;
+                case 2:
+                    EXPECT(not_found, store.get(i));
+                    break;
+                case 3:
+                    EXPECT(std::string(i+1, 's'), store.get(i));
+                    break;
+                default:
+                    assert(0);
+            }
+        }
+
+        phase();
+
+        report();
+
 		std::cout.flush();
 
 		while (true) {
@@ -159,8 +180,8 @@ void usage(const char *prog, const char *verb, const char *mode)
 
 int main(int argc, char *argv[])
 {
-	bool verbose = false;
-	bool testmode = false;
+	bool verbose = true;
+	bool testmode = true;
 
 	if (argc == 2) {
 		verbose = std::string(argv[1]) == "-v";

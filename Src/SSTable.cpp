@@ -179,15 +179,15 @@ SSTable::readData(const std::string &filePath, std::string &dst, uint32_t thisOf
 
 std::string SSTable::get(uint64_t key) const {
     if (!bloomFilter.find(key)) {
-//        std::cout  << "Key " << key << " is not in this SSTable,according to bloom filter" << std::endl;
+//        std::cout << "Key " << key << " is not in this SSTable,according to bloom filter" << std::endl;
         return "";
     }
     auto filePath = directoryPath + std::to_string(header.timeStamp) + ".sst";
     std::string value;
     unsigned int keyNumber = keyOffsetPairs.size();
-    unsigned int l = 0, r = keyNumber - 1;
+    int l = 0, r = keyNumber - 1;
     while (l <= r) {
-        unsigned int m = (l + r) >> 1;
+        int m = (l + r) >> 1;
         auto thisPair = keyOffsetPairs[m];
         auto thisKey = thisPair.key;
         auto thisOffset = thisPair.offset;
@@ -200,6 +200,8 @@ std::string SSTable::get(uint64_t key) const {
             if (m != keyNumber - 1)
                 nextOffset = keyOffsetPairs[m + 1].offset;
             readData(filePath, value, thisOffset, nextOffset);
+//            std::cout << "Target: " << key << std::endl;
+//            std::cout << "value " << value << std::endl;
             break;
         } else if (thisKey > key) {
             r = m - 1;

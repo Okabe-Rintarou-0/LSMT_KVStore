@@ -8,8 +8,6 @@ class KVStore : public KVStoreAPI {
     // You can add your implementation here
 private:
 
-    static void getFileNamesUnderDirectory(std::string &filePath, const std::regex &pat, std::vector<std::string> &dst);
-
     void removeDirectoryContentRecursively(std::string filePath);
 
     void mergeLevels();
@@ -38,6 +36,10 @@ public:
     KVStore(const std::string &dir);
 
     ~KVStore();
+
+    uint64_t getEndNumber(const std::string &src);
+
+    void getFileNamesUnderDirectory(std::string &filePath, const std::regex &pat, std::vector<std::string> &dst);
 
     void showMemTable(); //for Debug;
 

@@ -8,11 +8,11 @@ class CorrectnessTest : public Test {
 private:
     const uint64_t SIMPLE_TEST_MAX = 512;
 //	const uint64_t LARGE_TEST_MAX = 1024 * 64;
-    const uint64_t LARGE_TEST_MAX = 1024 * 4;
+    const uint64_t LARGE_TEST_MAX = 1024 * 10;
 
     void regular_test(uint64_t max) {
         uint64_t i;
-
+        store.reset();
         // Test a single key
         EXPECT(not_found, store.get(1));
         store.put(1, "SE");
@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
     std::cout << std::endl;
     std::cout.flush();
 
-    verbose = true;
+//    verbose = true;
     CorrectnessTest test("./data", verbose);
 
     test.start_test();
