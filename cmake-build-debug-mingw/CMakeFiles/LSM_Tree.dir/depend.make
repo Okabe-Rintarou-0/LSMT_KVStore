@@ -19,11 +19,10 @@ CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.obj: ../Inc/kvstore.h
 CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.obj: ../Inc/kvstore_api.h
 CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.obj: ../Src/kvstore.cc
 
-CMakeFiles/LSM_Tree.dir/persistence.cc.obj: ../Inc/MemTable.h
-CMakeFiles/LSM_Tree.dir/persistence.cc.obj: ../Inc/SSTable.h
-CMakeFiles/LSM_Tree.dir/persistence.cc.obj: ../Inc/includes.h
-CMakeFiles/LSM_Tree.dir/persistence.cc.obj: ../Inc/kvstore.h
-CMakeFiles/LSM_Tree.dir/persistence.cc.obj: ../Inc/kvstore_api.h
-CMakeFiles/LSM_Tree.dir/persistence.cc.obj: ../Inc/test.h
-CMakeFiles/LSM_Tree.dir/persistence.cc.obj: ../persistence.cc
+CMakeFiles/LSM_Tree.dir/test_performance.cpp.obj: ../Inc/MemTable.h
+CMakeFiles/LSM_Tree.dir/test_performance.cpp.obj: ../Inc/SSTable.h
+CMakeFiles/LSM_Tree.dir/test_performance.cpp.obj: ../Inc/includes.h
+CMakeFiles/LSM_Tree.dir/test_performance.cpp.obj: ../Inc/kvstore.h
+CMakeFiles/LSM_Tree.dir/test_performance.cpp.obj: ../Inc/kvstore_api.h
+CMakeFiles/LSM_Tree.dir/test_performance.cpp.obj: ../test_performance.cpp
 

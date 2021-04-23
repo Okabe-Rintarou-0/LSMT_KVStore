@@ -223,32 +223,32 @@ Src/kvstore.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/Src/kvstore.cc.s
 .PHONY : Src/kvstore.cc.s
 
-persistence.obj: persistence.cc.obj
+test_performance.obj: test_performance.cpp.obj
 
-.PHONY : persistence.obj
+.PHONY : test_performance.obj
 
 # target to build an object file
-persistence.cc.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/persistence.cc.obj
-.PHONY : persistence.cc.obj
+test_performance.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/test_performance.cpp.obj
+.PHONY : test_performance.cpp.obj
 
-persistence.i: persistence.cc.i
+test_performance.i: test_performance.cpp.i
 
-.PHONY : persistence.i
+.PHONY : test_performance.i
 
 # target to preprocess a source file
-persistence.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/persistence.cc.i
-.PHONY : persistence.cc.i
+test_performance.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/test_performance.cpp.i
+.PHONY : test_performance.cpp.i
 
-persistence.s: persistence.cc.s
+test_performance.s: test_performance.cpp.s
 
-.PHONY : persistence.s
+.PHONY : test_performance.s
 
 # target to generate assembly for a file
-persistence.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/persistence.cc.s
-.PHONY : persistence.cc.s
+test_performance.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LSM_Tree.dir\build.make CMakeFiles/LSM_Tree.dir/test_performance.cpp.s
+.PHONY : test_performance.cpp.s
 
 # Help Target
 help:
@@ -268,9 +268,9 @@ help:
 	@echo ... Src/kvstore.obj
 	@echo ... Src/kvstore.i
 	@echo ... Src/kvstore.s
-	@echo ... persistence.obj
-	@echo ... persistence.i
-	@echo ... persistence.s
+	@echo ... test_performance.obj
+	@echo ... test_performance.i
+	@echo ... test_performance.s
 .PHONY : help
 
 

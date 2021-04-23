@@ -10,7 +10,7 @@ private:
 
     void removeDirectoryContentRecursively(std::string filePath);
 
-    void mergeLevels();
+    void mergeLevels(int levelIndex);
 
     void handleLevelOverflow();
 
@@ -19,14 +19,17 @@ private:
                std::vector<uint64_t> &dstKeys, std::vector<std::string> &dstValues);
 
     void
-    splitIntoSSTables(std::vector<uint64_t> &srcKeys, std::vector<std::string> &srcValues, std::string &dstPath);
+    splitIntoSSTables(std::vector<uint64_t> &srcKeys, std::vector<std::string> &srcValues, std::string &dstPath,
+                      int levelIndex);
 
-    void pushDown(unsigned int levelIndex);
+    uint64_t getEndNumber(const std::string &src);
 
     inline bool isOverflow(unsigned int levelIndex) const {
         return storeLevel.size() > levelIndex &&
                storeLevel[levelIndex].size() > 1 << (levelIndex + 1); //size > 2^(i+1) ?
     }
+
+    SSTable *decodeSSTFile(const std::string &filePath);
 
     std::string manageDir;
     MemTable *memTable;
@@ -37,8 +40,6 @@ public:
 
     ~KVStore();
 
-    uint64_t getEndNumber(const std::string &src);
-
     void getFileNamesUnderDirectory(std::string &filePath, const std::regex &pat, std::vector<std::string> &dst);
 
     void showMemTable(); //for Debug;
@@ -47,20 +48,12 @@ public:
 
     std::string get(uint64_t key) override;
 
+    std::string getForTest0(uint64_t key);
+
     bool del(uint64_t key) override;
 
     void reset() override;
 
-    SSTable *decodeSSTFile(const std::string &filePath);
-
     void MemTableToSSTable();
 
-    void testGetValues(std::vector<std::string> &values) {
-        if (storeLevel[0].size() > 0)(*storeLevel[0].begin())->getValues(values);
-        std::cout << "result:" << std::endl;
-        for (auto &value:values) {
-            std::cout << value << " ";
-        }
-        std::cout << std::endl;
-    }
 };
