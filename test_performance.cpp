@@ -43,7 +43,7 @@ public:
     void prepareRandomly(int testSize) {
         srand((unsigned) time(NULL));
         for (int i = 0; i < testSize; ++i) {
-            store->put((rand() % 10000) + 1, std::string((rand() % 1024) + 1, 'x'));
+            store->put((rand() % 100000) + 1, std::string((rand() % 10240) + 1, 'x'));
         }
     }
 
@@ -59,6 +59,7 @@ public:
                         store->getForTest0(i);
                         break;
                     case 2:
+                        store->getForTest1(i);
                         break;
                     case 3:
                         store->get(i);
@@ -70,7 +71,7 @@ public:
         }
         avgTime = totalTime / times;
         report();
-        writeResult("testGetResult.txt");
+//        writeResult("testGetResult.txt");
     }
 
     void testGet(int testSize, int valueSize, int times = 1) {
@@ -131,10 +132,11 @@ private:
 
 int main() {
     PerformanceTest test;
-    for (int i = 5; i < 1100; i += 5)
-        test.testDelete(TESTSIZE, i, 10);
-    for (int i = 500; i < 10000; i += 500)
-        test.testPut(TESTSIZE, i, 10);
+    test.testGetByThreeWay(TESTSIZE, 50, 3);
+//    for (int i = 5; i < 1100; i += 5)
+//        test.testDelete(TESTSIZE, i, 10);
+//    for (int i = 500; i < 10000; i += 500)
+//        test.testPut(TESTSIZE, i, 10);
 //    test.testPut(TESTSIZE, 50, 10);
 //    test.testPut(TESTSIZE, 100, 10);
 //    test.testPut(TESTSIZE, 500, 10);

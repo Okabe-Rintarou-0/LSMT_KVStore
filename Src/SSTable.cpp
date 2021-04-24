@@ -79,7 +79,7 @@ void SSTable::getKeys(std::vector<uint64_t> &dst) const {
 }
 
 void SSTable::write(const std::vector<std::string> &values) const {
-    std::string filePath = directoryPath + std::to_string(header.timeStamp) + ".sst";
+    std::string filePath = getFilePath();
     std::ofstream file(filePath, std::ios::binary | std::ios::trunc);
     if (!file.is_open()) {
         std::cout << "File open failed." << std::endl;
@@ -177,12 +177,49 @@ SSTable::readData(const std::string &filePath, std::string &dst, uint32_t thisOf
     }
 }
 
+std::string SSTable::getForTest(uint64_t key) const {
+    auto filePath = getFilePath();
+    std::string value;
+    unsigned int keyNumber = keyOffsetPairs.size();
+    int l = 0, r = keyNumber - 1;
+    while (l <= r) {
+        int m = (l + r) >> 1;
+        auto thisPair = keyOffsetPairs[m];
+        auto thisKey = thisPair.key;
+        auto thisOffset = thisPair.offset;
+#ifdef DEBUG
+        std::cout << "Searching key... thisKey = " << thisKey << std::endl;
+        std::cout << "Searching key... thisOffset = " << thisOffset << std::endl;
+#endif
+        uint32_t nextOffset = 0;
+        if (thisKey == key) {
+            if (m != keyNumber - 1)
+                nextOffset = keyOffsetPairs[m + 1].offset;
+            readData(filePath, value, thisOffset, nextOffset);
+//            std::cout << "Target: " << key << std::endl;
+//            std::cout << "value " << value << std::endl;
+            break;
+        } else if (thisKey > key) {
+            r = m - 1;
+        } else {
+            l = m + 1;
+        }
+    }
+#ifdef DEBUG
+    if (value.empty()) {
+        std::cout << "Key " << key << " is not in this SSTable" << std::endl;
+    } else
+        std::cout << "Key " << key << " has been found in this SSTable,value is " << value << std::endl;
+#endif
+    return value;
+}
+
 std::string SSTable::get(uint64_t key) const {
     if (!bloomFilter.find(key)) {
 //        std::cout << "Key " << key << " is not in this SSTable,according to bloom filter" << std::endl;
         return "";
     }
-    auto filePath = directoryPath + std::to_string(header.timeStamp) + ".sst";
+    auto filePath = getFilePath();
     std::string value;
     unsigned int keyNumber = keyOffsetPairs.size();
     int l = 0, r = keyNumber - 1;

@@ -36,6 +36,8 @@ public:
 
     std::string get(uint64_t key) const;
 
+    std::string getForTest(uint64_t key) const;
+
     void write(const std::vector<std::string> &data) const;
 
     void putKeyOffsetPair(uint64_t key, uint32_t offset);
@@ -56,7 +58,11 @@ public:
             this->directoryPath.append("/");
     }
 
-    inline std::string getFilePath() const { return directoryPath + std::to_string(header.timeStamp) + ".sst"; }
+    inline std::string getFilePath() const {
+        auto filePath = groupId ? directoryPath + std::to_string(header.timeStamp) + "_" + std::to_string(groupId) +
+                                  ".sst" : directoryPath + std::to_string(header.timeStamp) + ".sst";
+        return filePath;
+    }
 
     inline uint64_t getTimeStamp() const { return header.timeStamp; }
 
@@ -65,6 +71,8 @@ public:
     inline int64_t getMinKey() const { return header.minKey; }
 
     inline int64_t getMaxKey() const { return header.maxKey; }
+
+    inline void setGroupId(int _groupId) { groupId = _groupId; }
 
 private:
 
@@ -90,7 +98,7 @@ private:
     BloomFilter bloomFilter;
     std::vector<KeyOffsetPair> keyOffsetPairs;
     std::vector<std::string> data;
-
+    int groupId = 0;
     std::string directoryPath;
 };
 

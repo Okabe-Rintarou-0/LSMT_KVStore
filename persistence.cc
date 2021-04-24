@@ -7,7 +7,7 @@
 
 class PersistenceTest : public Test {
 private:
-	const uint64_t TEST_MAX = 1024 * 5;
+	const uint64_t TEST_MAX = 1024 * 10;
 	void prepare(uint64_t max)
 	{
 		uint64_t i;
@@ -181,7 +181,7 @@ void usage(const char *prog, const char *verb, const char *mode)
 int main(int argc, char *argv[])
 {
 	bool verbose = true;
-	bool testmode = false;
+	bool testmode = true; ///TODO params
 
 	if (argc == 2) {
 		verbose = std::string(argv[1]) == "-v";

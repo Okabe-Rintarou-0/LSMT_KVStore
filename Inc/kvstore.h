@@ -20,9 +20,9 @@ private:
 
     void
     splitIntoSSTables(std::vector<uint64_t> &srcKeys, std::vector<std::string> &srcValues, std::string &dstPath,
-                      int levelIndex);
+                      int levelIndex, int timeStamp);
 
-    uint64_t getEndNumber(const std::string &src);
+    std::pair<uint64_t, int> getEndNumber(const std::string &src);
 
     inline bool isOverflow(unsigned int levelIndex) const {
         return storeLevel.size() > levelIndex &&
@@ -50,10 +50,11 @@ public:
 
     std::string getForTest0(uint64_t key);
 
+    std::string getForTest1(uint64_t key);
+
     bool del(uint64_t key) override;
 
     void reset() override;
 
     void MemTableToSSTable();
-
 };
